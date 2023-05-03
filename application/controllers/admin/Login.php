@@ -22,7 +22,7 @@ class Login extends CI_Controller
 		if ($nameExist = $this->UserModel->checkUsernameExist($email, 1)) {
 			if (password_verify($password, $nameExist->password)) {
 				$sess_array = array(
-					'user_log_id'  => $nameExist->user_id,
+					'user_log_id'  => $nameExist->id,
 					'user_display' => $nameExist->name
 				);
 				$this->session->set_userdata('admin_log_data', $sess_array);

@@ -11,8 +11,9 @@ class Dashboard extends CI_Controller
 	{
 		$data['folder'] = 'admin';
 		$data['template'] = 'dashboard';
-		$data['title'] = 'HWBZ Admin Dashboard';
+		$data['title'] = 'Admin Dashboard';
 		$data['admin_data'] = logged_in_admin_row();
+		// echo $this->db->last_query();die();
 		$this->load->view('layout', $data);
 	}
 }

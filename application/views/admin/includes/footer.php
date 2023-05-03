@@ -1,15 +1,5 @@
 </div>
 </div>
-<script>
-	// $(document).ready(function() {
-	// 	$('#example').DataTable({
-	// 		"searching": false,
-	// 		"ordering": false,
-	// 		"paging": true
-	// 	});
-	// });
-</script>
-
 <!-- plugins:js -->
 <script src="<?= ASSET_URL ?>templete/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
