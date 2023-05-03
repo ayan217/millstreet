@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Dashboard extends CI_Controller
+class Users extends CI_Controller
 {
 	function __construct()
 	{
@@ -10,8 +10,8 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['folder'] = 'admin';
-		$data['template'] = 'dashboard';
-		$data['title'] = 'Admin Dashboard';
+		$data['template'] = 'users';
+		$data['title'] = 'Manage Users';
 		$data['admin_data'] = logged_in_admin_row();
 		$this->load->view('layout', $data);
 	}
