@@ -11,7 +11,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | of this setting
 |
 */
-define('TABLE_PREFIX', 'hwbz_');
 
 // baseurl
 
@@ -96,26 +95,4 @@ defined('EXIT_DATABASE')       or define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-//application user types
 
-define('SUPER_ADMIN', 'USER-0');
-define('ADMIN', 'USER-1');
-define('HCP', 'USER-2');
-define('PATIENT', 'USER-3');
-define('ORG', 'USER-4');
-
-//application user types
-
-//upload file paths
-
-define('HCP_SIGNUP_DOCS', FCPATH . 'assets/uploads/hcp_signups');
-define('JOB_INVOICE_PATH', FCPATH . 'assets/job_invoices');
-define('UPLOAD_PROFILE_PICTURE', FCPATH . 'assets/uploads/profile_pictures');
-define('SHOW_PROFILE_PICTURE', ASSET_URL . 'uploads/profile_pictures/');
-
-//upload file paths
-//download file paths
-
-define('DOWNLOAD_JOB_INVOICE_PATH', ASSET_URL . 'job_invoices/');
-
-//download file paths

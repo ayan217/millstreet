@@ -76,15 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-
-	// 'username' => 'acqgnbpqdp',
-	// 'password' => 'Zx9twcGBQU',
-	// 'database' => 'acqgnbpqdp',
-
 	'username' => 'root',
 	'password' => '',
-	'database' => 'hwbz',
-
+	'database' => 'millstreet',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

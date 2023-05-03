@@ -11,19 +11,19 @@ class Login extends CI_Controller
 		$this->session->sess_destroy();
 		$data['folder'] = 'admin';
 		$data['template'] = 'login';
-		$data['title'] = 'HWBZ Admin Login';
+		$data['title'] = 'Admin Login';
 		$this->load->view('layout', $data);
 	}
 	public function verify_login()
 	{
-		$name     = $this->input->post('username');
+		$email     = $this->input->post('email');
 		$password = $this->input->post('password');
 		//0 means non admin 1 means admin
-		if ($nameExist = $this->UserModel->checkUsernameExist($name, 1)) {
+		if ($nameExist = $this->UserModel->checkUsernameExist($email, 1)) {
 			if (password_verify($password, $nameExist->password)) {
 				$sess_array = array(
 					'user_log_id'  => $nameExist->user_id,
-					'user_display' => $nameExist->first_name . ' ' . $nameExist->last_name
+					'user_display' => $nameExist->name
 				);
 				$this->session->set_userdata('admin_log_data', $sess_array);
 				redirect(ADMIN_URL . 'dashboard', 'refresh');

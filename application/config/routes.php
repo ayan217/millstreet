@@ -56,7 +56,7 @@ $route['default_controller'] = 'Home';
 $route['signup'] = 'Home/signup';
 $route['thank-you'] = 'Home/thankyou';
 $route['login'] = 'Home/login';
-$route['logout'] = 'Home/logout';
+$route['admin/logout'] = 'admin/Login/logout';
 //general pages
 //ss pages
 $route['ss'] = 'ss/Dashboard';
