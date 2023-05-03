@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+@font-face {
+    font-family: "Play-Bold";
+    src: url(../fonts/Play-Bold.ttf);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    font-family: 'Play', sans-serif; 
+}
+h1 ,h2,h3,h4,h5,h6{
+    font-family: "Play-Bold"; 
+}
+
+.navbtns {
+    margin-left: 30px;
+  }
+  nav {
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 40px;
+  }
+  .navlinks {
+    text-decoration: none;
+  }
+
+
+  .navbtns-maindiv {
+    padding-top: 27px;
+    font-family: 'Play', sans-serif;
+  }
+
+  .primary-btn:hover {
+    transition: 0.3s;
+    background: #35b1ff;
+    color: #fff;
+  }
+  .navlinks {
+    font-size: 18px;
+    color: #0c2331;
+  }
+  .primary-btn {
+    background: #2d90ce;
+    color: #fff !important;
+    padding: 20px 50px;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+font-weight: 600  ;
+font-family: 'Play', sans-serif;
+  }
+  .bannertext {
+    color: #0c2331;
+    font-size: 65px;
+  }
+
+  .bannertext {
+    width: 734px;
+  }
+  .images {
+    width: 100%;
+  }
+  .homebanner {
+    padding-left: 150px;
+    padding-top: 101px;
+    padding-right: 100px;
+  }
+  .mainimgs {
+    width: 100%;
+    margin-top: -80px;
+  }
+
+  .abs {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+  }
+  .text-banner {
+    width: 606px;
+    padding-top: 50px;
+  }
+  .bannertext {
+    width: 721px;
+    z-index: 9;
+    position: relative;
+    line-height: 80px;
+  }
+ 
+  .job-postdic {
+    margin-top: 80px;
+  }
+
+
+
+  .normal-header{
+    color:#0c2331;
+    font-size: 50px;
+  }
+  .howit-works {
+    padding-top: 60px;
+  }
+
+  .bacgroundimg2w{
+    background-image: url(../images/hwbzimg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 81%;
+    background-position: center;
+    top: -46px;
+  }
+
+  .bacgroundimg {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+
+    text-align: center;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 37px #b5e1fd;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .textimgs {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+    background: #2d90ce;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+  }
+  .headtext3 {
+    font-size: 46px;
+    line-height: 60px;
+  }
+  .color-white{
+    color: #fff;
+  }
+.text-secblue{
+  color:#2d90ce;
+}
+  .sec-btn {
+    background: #fff;
+    padding: 20px 50px;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 600;
+    font-family: 'Play', sans-serif;
+  }
+
+  .btntexts {
+    margin-top: 25px;
+  }
+
+  .stepcounts {
+    width: 40px;
+    height: 40px;
+    
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    padding-top: 7px;
+  }
+
+
+  .bg-blue{
+    background: #2d90ce;
+  }
+
+  .textheader {
+    display: flex;
+  }
