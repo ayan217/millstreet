@@ -31,4 +31,35 @@ class Users extends CI_Controller
 			$this->load->view('layout', $data);
 		}
 	}
+	public function image_upload($height = null, $width = null)
+	{
+		if (isset($_POST['crop_image'])) {
+			$data = $_POST;
+			$crop_res = final_crop($data);
+			if ($crop_res !== false) {
+				$res = [
+					'status' => 1,
+					'img_name' => $crop_res
+				];
+			} else {
+				$res = [
+					'status' => 0
+				];
+			}
+		} else {
+			$data = [
+				'name' => $_FILES['image']['name'],
+				'tmp_name' => $_FILES['image']['tmp_name'],
+			];
+			$resized_image = image_resize($data, $height, $width);
+			if ($resized_image !== false) {
+				$res = $resized_image;
+			} else {
+				$res = [
+					'status' => 0
+				];
+			}
+		}
+		echo json_encode($res);
+	}
 }
