@@ -53,27 +53,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 //general pages
 $route['default_controller'] = 'Home';
-$route['signup'] = 'Home/signup';
-$route['thank-you'] = 'Home/thankyou';
-$route['login'] = 'Home/login';
 $route['admin/logout'] = 'admin/Login/logout';
 //general pages
-//ss pages
-$route['ss'] = 'ss/Dashboard';
-$route['ss/account-settings'] = 'ss/Profile/account_settings';
-$route['ss/job/(:any)'] = 'ss/Job/view_job/$1';
-$route['ss/cancel-job/(:num)'] = 'ss/Job/cancel_job/$1';
-$route['ss/change-password'] = 'ss/Profile/change_password';
-$route['ss/booking-history'] = 'ss/Reports/booking_history';
-//ss pages
+
 // admin pages
 $route['admin'] = 'admin/Login';
-//settings
-$route['admin/commission'] = 'admin/Settings/commission';
-$route['admin/ss-type'] = 'admin/Settings/ss_type';
-$route['admin/hcp-services'] = 'admin/Settings/hcp_service';
-$route['admin/hourly-rates'] = 'admin/Settings/hourly_rates';
-//settings
 // admin pages
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

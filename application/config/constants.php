@@ -96,3 +96,7 @@ defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
+define('QR_UPLOAD', FCPATH . 'assets/qr/');
+define('GET_QR', ASSET_URL . 'qr/');
+define('GET_PROFILE', ASSET_URL . 'profile_picture/');
+define('PROFILE_UPLOAD', FCPATH . 'assets/profile_picture/');

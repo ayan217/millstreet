@@ -52,6 +52,21 @@ class userModel extends CI_Model
 		}
 	}
 
+	public function getuser($id)
+	{
+		$this->db->select();
+		$this->db->from($this->table_name);
+		$this->db->where('id', $id);
+		$this->db->where('acc_type', 0);
+
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			return false;
+		} else {
+			return $query->row();
+		}
+	}
+
 	public function update_user($data, $id)
 	{
 		$this->db->where('id', $user_id);
