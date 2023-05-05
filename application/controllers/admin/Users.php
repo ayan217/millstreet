@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require_once(APPPATH . 'libraries/phpqrcode/qrlib.php');
+
 class Users extends CI_Controller
 {
 	function __construct()
@@ -13,11 +15,47 @@ class Users extends CI_Controller
 		$data['template'] = 'users';
 		$data['title'] = 'Manage Users';
 		$data['admin_data'] = logged_in_admin_row();
+		$data['users'] = $this->UserModel->getusers();
 		$this->load->view('layout', $data);
 	}
 	public function add_user($id = null)
 	{
 		if ($this->input->post()) {
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required');
+			$this->form_validation->set_rules('phone', 'Phone', 'required');
+			$this->form_validation->set_rules('photo', 'Photo', 'required');
+			$this->form_validation->set_rules('acc_type', 'acc_type', 'required');
+			$this->form_validation->set_rules('created_at', 'created_at', 'required');
+			if ($this->form_validation->run() == TRUE) {
+				$data = $_POST;
+				$user_id = $this->UserModel->add_user($data);
+				if ($user_id !== false) {
+					$file_name1 = $_POST['name'] . '_QRCODE_' . $user_id . '.png';
+					$file_path = QR_UPLOAD;
+
+					$text = base_url('user/' . $user_id);
+					$folder = $file_path;
+					$file_name = $folder . $file_name1;
+					QRcode::png($text, $file_name, QR_ECLEVEL_L, 400);
+					$qr_data = [
+						'qr' => $file_name1
+					];
+					if ($this->UserModel->update_user($qr_data, $user_id) !== false) {
+						$this->session->set_flashdata('log_suc', 'User Added');
+						redirect('admin/Users', 'refresh');
+					} else {
+						$this->session->set_flashdata('log_err', 'QR Failed..!!');
+						redirect($_SERVER['HTTP_REFERER'], 'refresh');
+					}
+				} else {
+					$this->session->set_flashdata('log_err', 'Database Error..!!');
+					redirect($_SERVER['HTTP_REFERER'], 'refresh');
+				}
+			} else {
+				$this->session->set_flashdata('log_err', 'All Fields Needs To Be Filled!!');
+				redirect($_SERVER['HTTP_REFERER'], 'refresh');
+			}
 		} else {
 			if ($id == null) {
 				$data['title'] = 'Add User';

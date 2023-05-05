@@ -16,7 +16,7 @@
 				<div class="card-body">
 					<h4 class="card-title">Add New User</h4>
 					<hr>
-					<img src="" id="profile_picture" alt="">
+					<div><img style="border-radius: 50%;" width="150" src="<?= GET_PROFILE ?>user_default.png" id="profile_picture" alt=""></div>
 					<button type="button" id="edit-icon">Edit Profile Picture</button>
 					<input type="file" id="file-upload" style="display:none;">
 					<script>
@@ -67,7 +67,9 @@
 					</script>
 					<form class="forms-sample" method="post" action="<?= ADMIN_URL . 'Users/add_user' ?>">
 						<div>
-							<input required type="hidden" name="photo" class="form-control">
+							<input required type="hidden" name="photo" class="form-control" value="user_default.png">
+							<input required type="hidden" name="acc_type" class="form-control" value="0">
+							<input required type="hidden" name="created_at" class="form-control" value="<?= date('Y-m-d H:i:s') ?>">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Name</label>
 								<input required type="text" name="name" placeholder="Name" class="form-control" value="<?= !empty($user_data) ? $user_data->name : '' ?>">

@@ -42,13 +42,13 @@
 								?>
 										<tr>
 											<td>
-												<img src="#" class="img-responsive" alt="Image">
+												<img src="<?= GET_PROFILE . $user->photo ?>" style="border-radius:50%" class="img-responsive" alt="Image">
 											</td>
 											<td><?= $user->name ?></td>
 											<td><?= $user->email ?></td>
 											<td><?= $user->phone ?></td>
 											<td>
-												<a href="javascript:void(0)" class="btn btn-success">View QR Code</a>
+												<a href="javascript:void(0)" data-qr_name="<?= $user->qr ?>" class="btn btn-success show_qr_btn">View QR Code</a>
 											</td>
 											<td>
 												<a href="" class="btn btn-warning">Edit</a>
@@ -69,3 +69,22 @@
 		</div>
 	</div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="qr_modal" tabindex="-1" role="dialog" aria-labelledby="jobinvoiceLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<img class="img-fluid" src="" id="show_qr" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$('.show_qr_btn').click(function() {
+    var name = $(this).data('qr_name');
+    var path = '<?= GET_QR ?>' + name;
+    $('#show_qr').attr('src', path).on('load', function() {
+        $('#qr_modal').modal('show');
+    });
+});
+</script>

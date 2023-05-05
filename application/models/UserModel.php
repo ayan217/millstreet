@@ -67,9 +67,23 @@ class userModel extends CI_Model
 		}
 	}
 
+	public function getusers()
+	{
+		$this->db->select();
+		$this->db->from($this->table_name);
+		$this->db->where('acc_type', 0);
+		$this->db->order_by('id', 'DESC');
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			return false;
+		} else {
+			return $query->result();
+		}
+	}
+
 	public function update_user($data, $id)
 	{
-		$this->db->where('id', $user_id);
+		$this->db->where('id', $id);
 		if ($this->db->update($this->table_name, $data)) {
 			return true;
 		} else {
