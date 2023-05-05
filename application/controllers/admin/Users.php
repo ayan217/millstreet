@@ -22,8 +22,8 @@ class Users extends CI_Controller
 	{
 		if ($this->input->post()) {
 			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required');
-			$this->form_validation->set_rules('phone', 'Phone', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('phone', 'Phone', 'required|regex_match[/^[0-9]{10}$/]');
 			$this->form_validation->set_rules('photo', 'Photo', 'required');
 			$this->form_validation->set_rules('acc_type', 'acc_type', 'required');
 			$this->form_validation->set_rules('created_at', 'created_at', 'required');
@@ -53,7 +53,7 @@ class Users extends CI_Controller
 					redirect($_SERVER['HTTP_REFERER'], 'refresh');
 				}
 			} else {
-				$this->session->set_flashdata('log_err', 'All Fields Needs To Be Filled!!');
+				$this->session->set_flashdata('log_err', validation_errors());
 				redirect($_SERVER['HTTP_REFERER'], 'refresh');
 			}
 		} else {
