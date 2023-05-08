@@ -69,6 +69,30 @@ class Users extends CI_Controller
 			$this->load->view('layout', $data);
 		}
 	}
+	public function edit_user($id)
+	{
+		if ($this->input->post()) {
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('phone', 'Phone', 'required|regex_match[/^[0-9]{10}$/]');
+			$this->form_validation->set_rules('photo', 'Photo', 'required');
+			$this->form_validation->set_rules('acc_type', 'acc_type', 'required');
+			$this->form_validation->set_rules('updated_at', 'created_at', 'required');
+			if ($this->form_validation->run() == TRUE) {
+				$data = $_POST;
+				if ($this->UserModel->update_user($data, $id) !== false) {
+					$this->session->set_flashdata('log_suc', 'User Updated');
+					redirect('admin/Users', 'refresh');
+				} else {
+					$this->session->set_flashdata('log_err', 'Something Went Wrong..!!');
+					redirect($_SERVER['HTTP_REFERER'], 'refresh');
+				}
+			} else {
+				$this->session->set_flashdata('log_err', validation_errors());
+				redirect($_SERVER['HTTP_REFERER'], 'refresh');
+			}
+		}
+	}
 	public function image_upload($height = null, $width = null)
 	{
 		if (isset($_POST['crop_image'])) {
@@ -99,5 +123,15 @@ class Users extends CI_Controller
 			}
 		}
 		echo json_encode($res);
+	}
+	public function delete_user($id)
+	{
+		if ($this->UserModel->delete_user($id) == true) {
+			$this->session->set_flashdata('log_suc', 'User Deleted');
+			redirect('admin/Users', 'refresh');
+		} else {
+			$this->session->set_flashdata('log_err', 'Something Went Wrong..!!');
+			redirect($_SERVER['HTTP_REFERER'], 'refresh');
+		}
 	}
 }

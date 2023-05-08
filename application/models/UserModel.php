@@ -90,4 +90,13 @@ class userModel extends CI_Model
 			return false;
 		}
 	}
+	public function delete_user($id)
+	{
+		$this->db->where('id', $id);
+		if ($this->db->delete($this->table_name)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

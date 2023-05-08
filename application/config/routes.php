@@ -58,6 +58,8 @@ $route['admin/logout'] = 'admin/Login/logout';
 
 // admin pages
 $route['admin'] = 'admin/Login';
+$route['admin/user/edit/(:num)'] = 'admin/Users/add_user/$1';
+$route['admin/user/delete/(:num)'] = 'admin/Users/delete_user/$1';
 // admin pages
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

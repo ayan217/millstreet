@@ -51,8 +51,8 @@
 												<a href="javascript:void(0)" data-qr_name="<?= $user->qr ?>" class="btn btn-success show_qr_btn">View QR Code</a>
 											</td>
 											<td>
-												<a href="" class="btn btn-warning">Edit</a>
-												<a href="" class="btn btn-danger">Delete</a>
+												<a href="<?= ADMIN_URL ?>user/edit/<?= $user->id ?>" class="btn btn-warning">Edit</a>
+												<a href="<?= ADMIN_URL ?>user/delete/<?= $user->id ?>" class="btn btn-danger">Delete</a>
 											</td>
 										</tr>
 								<?php
@@ -80,11 +80,11 @@
 	</div>
 </div>
 <script>
-$('.show_qr_btn').click(function() {
-    var name = $(this).data('qr_name');
-    var path = '<?= GET_QR ?>' + name;
-    $('#show_qr').attr('src', path).on('load', function() {
-        $('#qr_modal').modal('show');
-    });
-});
+	$('.show_qr_btn').click(function() {
+		var name = $(this).data('qr_name');
+		var path = '<?= GET_QR ?>' + name;
+		$('#show_qr').attr('src', path).on('load', function() {
+			$('#qr_modal').modal('show');
+		});
+	});
 </script>
